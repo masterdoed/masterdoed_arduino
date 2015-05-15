@@ -1,30 +1,19 @@
-#include <dht.h>
+#include <dht11.h>
 
-#include <OneWire.h>
-#include <dht.h>
-
-#define DHT11PIN 5 
-
-     
-// DS18S20 Temperaturchip i/o
-OneWire ds(10);  // an pin 10
 dht11 DHT11;
-     
+
 void setup(void) {
   Serial.begin(9600);
 }
-     
+
 void loop(void) {
   doDHT();
   delay(10000);
 }
 
-
-// ***************************
-// DHT11 Sensor Readings
 void doDHT() {
   //read
-  int chk = DHT11.read(5);
+  int chk = DHT11.read(2);
   // check readings
   switch (chk)
   {
@@ -34,19 +23,10 @@ void doDHT() {
     default: Serial.println("Unknown error"); break;
   }
   //do output
-  /
-  Serial.print("outdoor_temp=");
+  Serial.print("indoor_temp ");
   Serial.print((float)DHT11.temperature, DEC);
   Serial.println("");
-  Serial.print("outdoor_humidity=");
+  Serial.print("indoor_humidity ");
   Serial.print((float)DHT11.humidity, DEC);
   Serial.println("");
-  Serial.print("outdoor_dew=")
-  Serial.print(DHT11.dewPointFast(), DEC);
-  Serial.println();
-}
-
-
-
-
-
+  }
