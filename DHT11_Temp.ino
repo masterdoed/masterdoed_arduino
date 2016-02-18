@@ -23,10 +23,11 @@ void doDHT() {
     default: Serial.println("Unknown error"); break;
   }
   //do output
-  Serial.print("indoor_temp ");
+  //Serial.print("indoor_temp ");
   Serial.print((float)DHT11.temperature, DEC);
-  Serial.println("");
-  Serial.print("indoor_humidity ");
+  Serial.print(",")
+  //Serial.println("");
+  //Serial.print("indoor_humidity ");
   Serial.print((float)DHT11.humidity, DEC);
-  Serial.println("");
+  //Serial.println("");
   }
