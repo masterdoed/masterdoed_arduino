@@ -29,5 +29,5 @@ void doDHT() {
   //Serial.println("");
   //Serial.print("indoor_humidity ");
   Serial.print((float)DHT11.humidity, DEC);
-  //Serial.println("");
+  Serial.println("");
   }
